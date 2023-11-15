@@ -1,0 +1,7 @@
+<h1>編集ページ<h1>
+<%= form_with url: admin_post_path, model: @post, local: true do |form| %>
+    <%= form.text_field :title, placeholder: "タイトル", rows: "5", cols: "30" %>
+    <%= form.text_area :text, placeholder: "本文", rows: "5", cols: "30" %>
+  <%= form.submit "投稿する" %>
+  <%= link_to "Tweet一覧に戻る", tweets_path %>
+<% end %>

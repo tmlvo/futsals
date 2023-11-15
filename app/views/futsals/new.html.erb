@@ -1,0 +1,23 @@
+<h1>F.C.CLAVELINA</h1>
+<h3>新規投稿ページ</h3>
+<%= form_for @futsal do |f| %>
+
+    <div class="field">
+    <%= f.label :タイトル %>
+    <%= f.text_field :name, :size => 30 %>
+    </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :出来事  %>
+    <%= f.text_area :about, :size => "30x2" %>
+  </div>
+
+  <%= f.submit "投稿する" %>
+  <% end %>
+  
+  <%= link_to "一覧に戻る", futsals_path %>
