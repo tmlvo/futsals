@@ -20,7 +20,24 @@ class FutsalsController < ApplicationController
           redirect_to :action => "new"
         end
       end
+
+      def show
+        @futsal = Futsal.find(params[:id])
+      end
     
+      def edit
+        @futsal = Futsal.find(params[:id])
+      end
+    
+      def update
+        futsal = Futsal.find(params[:id])
+        if tweet.update(tweet_params)
+          redirect_to :action => "show", :id => futsal.id
+        else
+          redirect_to :action => "new"
+        end
+      end
+
       private
       def futsal_params
         params.require(:futsal).permit(:image, :name, :about)

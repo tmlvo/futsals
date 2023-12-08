@@ -1,24 +1,26 @@
 <div class="futsals-container">
 
 <h1>F.C.CLAVELINA</h1>
-<h3>一覧ページ</h3>
+<h3>活動の様子</h3>
+
+<br>
 
 <div class="futsals-container">
   <% @futsals.each do |t| %>
     <div class="tweet">
     <%= image_tag t.image_url, size: "100x100" if t.image? %>
       <%= t.name %>
+      <%= t.about %>
     </div>
   <% end %>
   
   <%= link_to "新規投稿へ", new_futsal_path %>
+
  
 </div>
 
 <br>
   
-
-
     <%= link_to "ログイン", new_futsal_path %>
 
     <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
