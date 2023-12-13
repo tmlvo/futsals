@@ -1,4 +1,4 @@
-<div class="futsals-container">
+<div class="title-container">
 
 <h1>F.C.CLAVELINA</h1>
 <h3>活動の様子</h3>
@@ -8,10 +8,22 @@
 <div class="futsals-container">
   <% @futsals.each do |t| %>
     <div class="tweet">
-    <%= image_tag t.image_url, size: "100x100" if t.image? %>
-      <%= t.name %>
-      <%= t.about %>
+    
+    
+    <%= image_tag t.image_url, size: "300x200" if t.image? %>
+    <ul>
+      <li class="item1"><%= t.name %></li>
+      
+      <li class="item2"><%= t.about %></li>
+    </ul>
+
     </div>
+    
+    <% if user_signed_in? && current_user.id == t.user_id %>
+    <%= link_to "編集する", edit_futsal_path(t.id) %>
+    <%= button_to "削除する", futsal_path(t.id), method: :delete %> 
+    <% end %>
+    
   <% end %>
   
   <%= link_to "新規投稿へ", new_futsal_path %>

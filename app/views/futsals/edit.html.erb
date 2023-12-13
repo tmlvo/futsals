@@ -1,0 +1,19 @@
+<%= form_for @futsal do |f| %>
+
+    <div class="field">
+    <%= f.label :タイトル %>
+    <%= f.text_field :name, :size => 30 %>
+    </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :出来事  %>
+    <%= f.text_area :about, :size => "30x2" %>
+  </div>
+
+  <%= f.submit "投稿する" %>
+  <% end %>

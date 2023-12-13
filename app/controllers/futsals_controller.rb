@@ -14,6 +14,7 @@ class FutsalsController < ApplicationController
     
       def create
         futsal = Futsal.new(futsal_params)
+        futsal.user_id = current_user.id
         if futsal.save!
           redirect_to :action => "index"
         else
@@ -31,11 +32,17 @@ class FutsalsController < ApplicationController
     
       def update
         futsal = Futsal.find(params[:id])
-        if tweet.update(tweet_params)
+        if futsal.update(futsal_params)
           redirect_to :action => "show", :id => futsal.id
         else
           redirect_to :action => "new"
         end
+      end
+
+      def destroy
+        futsal = Futsal.find(params[:id])
+        futsal.destroy
+        redirect_to action: :index
       end
 
       private
